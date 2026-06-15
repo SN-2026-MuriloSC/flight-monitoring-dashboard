@@ -212,6 +212,26 @@ print(
     "Voos já existentes são atualizados — sem duplicatas."
 )
 
+# Remove voos duplicados antes do upsert
+registros_unicos = {}
+
+for r in registros:
+    chave = (
+        r["data_referencia"],
+        r["icao_empresa"],
+        r["numero_voo"],
+        r["icao_origem"],
+        r["icao_destino"],
+        r["etapa"],
+    )
+
+    # mantém apenas um registro por voo único
+    registros_unicos[chave] = r
+
+registros = list(registros_unicos.values())
+
+print(f"Registros únicos após deduplicação: {len(registros)}")
+
 # Envio em lotes ao Supabase
 total_processados = 0
 total_lotes       = 0
