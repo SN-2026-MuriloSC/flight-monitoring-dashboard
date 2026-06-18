@@ -1,10 +1,17 @@
 #  Painel de Monitoramento de Voos – SIROS + Supabase
 
-##  Sobre o Projeto
+##  Sobre o Projeto e LINKS
 
 Este projeto foi desenvolvido como atividade avaliativa da disciplina, com o objetivo de implementar um pipeline de dados completo utilizando **GitHub Actions**, **Supabase** e **GitHub Pages**.
 
 O sistema realiza a coleta automática de informações de voos através da API pública do **SIROS/ANAC**, processa os dados e os armazena em um banco de dados hospedado no Supabase. Em seguida, os dados são disponibilizados em um painel web publicado pelo GitHub Pages.
+
+Painel online (GitHub Pages):
+ 
+https://sn-2026-murilosc.github.io/1-A-A-2Tri-MuriloSouzaC/
+
+Repositório:
+https://github.com/SN-2026-MuriloSC/1-A-A-2Tri-MuriloSouzaC
 
 ---
 
