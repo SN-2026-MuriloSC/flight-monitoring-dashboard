@@ -266,6 +266,7 @@ for i in range(0, len(registros), LOTE):
         total_erros += 1
         print(f"❌ Erro no Lote {num_lote}: {e}")
 
+
 # Define status final
 if total_erros == 0:
     status_final = "concluido"
@@ -285,8 +286,21 @@ registrar_execucao(
 
 print(f"\nConcluído — {total_processados} registros enviados/processados em {total_lotes} lote(s).")
 
-# Falha o workflow se houver qualquer erro parcial
-# (permite que o GitHub Actions marque o run como falha para monitoramento)
+# Falha o workflow se houver qualquer erro
 if total_erros > 0:
-    print(f"\n[ATENÇÃO] {total_erros} lote(s) com erro — workflow finalizado com falha.")
     sys.exit(1)
+
+# ===== RESUMO FINAL =====
+print("\n===================================")
+print("🚀 PIPELINE FINALIZADO")
+print("===================================")
+
+print(f"📊 Total processados: {total_processados}")
+print(f"📦 Lotes enviados: {total_lotes}")
+print(f"❌ Erros: {total_erros}")
+print(f"📍 Aeroportos: {', '.join(AIRPORTS)}")
+print(f"🗓️ Data: {data_iso}")
+
+print("===================================")
+print(f"🏁 Status final: {status_final}")
+print("===================================")
