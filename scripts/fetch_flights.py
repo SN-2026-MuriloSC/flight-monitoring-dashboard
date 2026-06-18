@@ -21,6 +21,10 @@ from datetime import datetime, timezone, timedelta
 import requests
 from supabase import create_client
 
+print("===================================")
+print("🚀 Iniciando coleta SIROS")
+print("===================================")
+
 # ── Credenciais ───────────────────────────────────────────────────────────────
 
 SUPABASE_URL = os.environ.get("SUPABASE_URL", "").strip()
