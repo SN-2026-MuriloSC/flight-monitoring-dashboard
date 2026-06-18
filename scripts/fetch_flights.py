@@ -196,26 +196,29 @@ if not todos_voos:
                        "API SIROS não retornou voos para a data.")
     sys.exit(0)
 
-# Filtra pelos aeroportos configurados e normaliza os registros
+## Filtra pelos aeroportos configurados e normaliza os registros
 registros = []
+
 for f in todos_voos:
     origem  = (f.get("sg_icao_origem")  or "").strip().upper()
     destino = (f.get("sg_icao_destino") or "").strip().upper()
+    voo_id  = (f.get("nr_voo") or "").strip()
+
+    # 🔥 LOG MAIS LIMPO e ORGANIZADO (só quando tiver voo válido)
+    if voo_id:
+        print(f"✈️ Voo encontrado: {voo_id} | {origem} → {destino}")
+
+    # filtro por aeroporto
     if origem not in AIRPORTS and destino not in AIRPORTS:
         continue
+
     empresa = (f.get("sg_empresa_icao") or "").strip()
-    nr_voo  = (f.get("nr_voo")          or "").strip()
-    if not empresa or not nr_voo or not origem or not destino:
+
+    if not empresa or not voo_id or not origem or not destino:
         continue
+
     registros.append(normalizar_voo(f))
-
-print(f"\nRegistros filtrados para os aeroportos configurados: {len(registros)}")
-print(
-    "  Obs: o upsert usa constraint voos_unique "
-    "(data_referencia + icao_empresa + numero_voo + icao_origem + icao_destino + etapa). "
-    "Voos já existentes são atualizados — sem duplicatas."
-)
-
+  
 # Remove voos duplicados antes do upsert
 registros_unicos = {}
 
@@ -244,17 +247,24 @@ total_erros       = 0
 for i in range(0, len(registros), LOTE):
     lote     = registros[i:i + LOTE]
     num_lote = i // LOTE + 1
+
+    print(f"\n📦 Iniciando envio do Lote {num_lote}")
+    print(f"📊 Registros no lote: {len(lote)}")
+
     try:
         db.table("voos").upsert(
             lote,
             on_conflict="data_referencia,icao_empresa,numero_voo,icao_origem,icao_destino,etapa",
         ).execute()
+
         total_processados += len(lote)
         total_lotes       += 1
-        print(f"  Lote {num_lote}: {len(lote)} registros enviados/processados")
+
+        print(f"✅ Lote {num_lote} enviado com sucesso ({len(lote)} registros)")
+
     except Exception as e:
         total_erros += 1
-        print(f"  [ERRO] Lote {num_lote} falhou: {e}")
+        print(f"❌ Erro no Lote {num_lote}: {e}")
 
 # Define status final
 if total_erros == 0:
