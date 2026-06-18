@@ -304,8 +304,26 @@ linhas_vra = baixar_vra()
 if not linhas_vra:
     print("\n[AVISO] VRA não disponível para o período. Encerrando.")
     sys.exit(0)
-
+#--- evita as duplicações
 registros = processar_vra(linhas_vra)
+
+registros_unicos = {}
+
+for r in registros:
+    chave = (
+        r["ano_mes"],
+        r["icao_empresa"],
+        r["nr_voo"],
+        r["icao_origem"],
+        r["icao_destino"],
+        r["dt_referencia"],
+    )
+    registros_unicos[chave] = r
+
+registros = list(registros_unicos.values())
+
+print(f"Registros após deduplicação: {len(registros)}")
+
 processados = 0
 erros = 0
 
