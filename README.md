@@ -6,9 +6,13 @@ Este projeto foi desenvolvido como atividade avaliativa da disciplina, com o obj
 
 O sistema realiza a coleta automática de informações de voos através da API pública do **SIROS/ANAC**, processa os dados e os armazena em um banco de dados hospedado no Supabase. Em seguida, os dados são disponibilizados em um painel web publicado pelo GitHub Pages.
 
-Painel online (GitHub Pages):
+SIROS API | Online Dashboard (GitHub Pages):
  
 https://sn-2026-murilosc.github.io/1-A-A-2Tri-MuriloSouzaC/
+
+SIROS API | Online Dashboard (Vercel)
+
+https://1-a-a-2-tri-murilo-souza-c-tau.vercel.app/
 
 Repositório:
 
