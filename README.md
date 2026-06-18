@@ -12,7 +12,7 @@ https://sn-2026-murilosc.github.io/1-A-A-2Tri-MuriloSouzaC/
 
 SIROS API | Online Dashboard (Vercel)
 
-https://1-a-a-2-tri-murilo-souza-c-tau.vercel.app/
+https://sirosdashboard.vercel.app/
 
 Repositório:
 
