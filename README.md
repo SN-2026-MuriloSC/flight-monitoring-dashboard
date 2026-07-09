@@ -30,9 +30,8 @@
 </p>
 
 <p align="center">
-  <b>Clique nos botões abaixo para abrir o projeto:</b>
+  <b>Click the buttons below to open the project:</b>
 </p>
-
 <p align="center">
 
 <a href="https://sn-2026-murilosc.github.io/1-A-A-2Tri-MuriloSouzaC/">
