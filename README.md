@@ -47,23 +47,7 @@
 
 ---
 
-<p align="center">
 
-<a href="https://sn-2026-murilosc.github.io/1-A-A-2Tri-MuriloSouzaC/">
-<img src="https://img.shields.io/badge/GitHub%20Pages-Live-blue?style=for-the-badge">
-</a>
-
-<a href="https://sirosdashboard.vercel.app/">
-<img src="https://img.shields.io/badge/Vercel-Live-black?style=for-the-badge">
-</a>
-
-<a href="https://github.com/SN-2026-MuriloSC/1-A-A-2Tri-MuriloSouzaC">
-<img src="https://img.shields.io/badge/GitHub-Repository-181717?style=for-the-badge&logo=github&logoColor=white">
-</a>
-
-</p>
-
----
 
 # Table of Contents
 
