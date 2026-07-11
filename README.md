@@ -16,6 +16,12 @@
 </p>
 
 <p align="center">
+  <img width="1891" height="677" alt="Interactive route map" src="https://github.com/user-attachments/assets/7d7d103c-9f0d-4278-b678-659c4ac1f580" />
+</p>
+
+<p align="center"><i>Interactive route map</i></p>
+
+<p align="center">
 
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=githubactions&logoColor=white)
